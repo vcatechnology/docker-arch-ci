@@ -12,6 +12,3 @@ installs the some useful development packages.
   - [`automake`](https://www.archlinux.org/packages/core/x86_64/automake/)
   - [`git`](https://www.archlinux.org/packages/extra/x86_64/git/)
   - [`sudo`](https://www.archlinux.org/packages/core/x86_64/sudo/)
-
-The Docker image also creates a user account 'buildslave' with sudo permissions. The sudo password
-is disabled to allow non-interactive sudo calls.
