@@ -17,6 +17,7 @@ RUN pacman --noconfirm --needed -S \
   python \
   sudo
 
+RUN mkdir /builds && chmod 777 /builds
+
 # set the buildslave user as default
 USER buildslave
-WORKDIR /home/buildslave
