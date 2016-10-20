@@ -15,6 +15,9 @@ RUN useradd -ms /bin/bash build-server && \
     echo "#includedir /etc/sudoers.d" >> /etc/sudoers && \
     chmod 0440 /etc/sudoers.d/build-server
 
+# create a /builds folder with acceptable permissions using acl
+RUN mkdir /builds && chmod a+rwx /builds && setfacl -dRm u::rwX,g::rwX,o::rwX /builds
+
 # set the build-server user as default
 WORKDIR /builds
 USER build-server
