@@ -1,14 +1,6 @@
 FROM vcatechnology/arch:latest
 MAINTAINER VCA Technology <developers@vcatechnology.com>
 
-# create a buildslave user with sudo permissions & no password
-RUN useradd -ms /bin/bash buildslave && \
-    mkdir /etc/sudoers.d && \
-    echo "buildslave ALL=(root) NOPASSWD:ALL" | tee -a /etc/sudoers.d/buildslave && \
-    echo "#includedir /etc/sudoers.d" >> /etc/sudoers && \
-    chmod 755 /etc/sudoers.d && \
-    chmod 0440 /etc/sudoers.d/buildslave
-
 RUN pacman --noconfirm --needed -S \
   make \
   cmake \
@@ -17,8 +9,12 @@ RUN pacman --noconfirm --needed -S \
   python \
   sudo
 
-RUN mkdir /builds && chmod -R 777 /builds && chown -R buildslave:buildslave /builds
+# create a build-server user with sudo permissions & no password
+RUN useradd -ms /bin/bash build-server && \
+    echo "build-server ALL=(root) NOPASSWD:ALL" | tee -a /etc/sudoers.d/build-server && \
+    echo "#includedir /etc/sudoers.d" >> /etc/sudoers && \
+    chmod 0440 /etc/sudoers.d/build-server
 
-# set the buildslave user as default
+# set the build-server user as default
 WORKDIR /builds
-USER buildslave
+USER build-server
