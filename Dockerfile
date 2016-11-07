@@ -12,11 +12,11 @@ RUN pacman --noconfirm --needed -S \
   && pacman --noconfirm -Scc
 
 # grab the VCA CI scripts
-RUN pacman --noconfirm --needed -S wget tar xz && \
+RUN pacman --noconfirm --needed -S wget && \
   wget https://tool-chain.vcatechnology.com/release/vca-tool-chain-ci-scripts-latest.tar.xz && \
   tar -Jxf vca-tool-chain-ci-scripts-latest.tar.xz -C / && \
   rm vca-tool-chain-ci-scripts-latest.tar.xz && \
-  pacman -Rsn --noconfirm wget tar xz && \
+  pacman -Rsn --noconfirm wget && \
   pacman --noconfirm -Scc
 
 # create a build-server user with sudo permissions & no password
