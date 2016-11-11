@@ -1,7 +1,7 @@
 # Arch Linux Docker CI Image
 
-[![](https://images.microbadger.com/badges/image/vcatechnology/arch-ci.svg)](http://microbadger.com/images/vcatechnology/arch-ci "Get your own image badge on microbadger.com") 
-[![](https://images.microbadger.com/badges/version/vcatechnology/arch-ci.svg)](http://microbadger.com/images/vcatechnology/arch-ci "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/image/vcatechnology/arch-ci.svg)](http://microbadger.com/images/vcatechnology/arch-ci "Image Layers") 
+[![](https://images.microbadger.com/badges/version/vcatechnology/arch-ci.svg)](http://microbadger.com/images/vcatechnology/arch-ci "Image Version")
 
 This container derives from
 [vcatechnology/arch](https://hub.docker.com/r/vcatechnology/arch) so that the
