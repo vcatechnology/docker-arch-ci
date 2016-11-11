@@ -2,7 +2,7 @@ FROM vcatechnology/arch:latest
 MAINTAINER VCA Technology <developers@vcatechnology.com>
 
 # Install development packages
-RUN vca-install-packages \
+RUN vca-install-package \
   make \
   cmake \
   automake \
@@ -11,11 +11,11 @@ RUN vca-install-packages \
   sudo
 
 # Grab the VCA CI scripts
-RUN vca-install-packages wget && \
+RUN vca-install-package wget && \
   wget https://tool-chain.vcatechnology.com/release/vca-tool-chain-ci-scripts-latest.tar.xz && \
   tar -Jxf vca-tool-chain-ci-scripts-latest.tar.xz -C / && \
   rm vca-tool-chain-ci-scripts-latest.tar.xz && \
-  vca-uninstall-packages wget
+  vca-uninstall-package wget
 
 # Create a build-server user with sudo permissions & no password
 RUN useradd -ms /bin/bash build-server && \
