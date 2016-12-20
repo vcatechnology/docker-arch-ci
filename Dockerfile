@@ -24,7 +24,8 @@ RUN vca-install-package \
   automake \
   git \
   python \
-  sudo
+  sudo \
+  openssh
 
 # Grab the VCA CI scripts
 RUN vca-install-package wget && \
