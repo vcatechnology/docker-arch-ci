@@ -25,7 +25,8 @@ RUN vca-install-package \
   git \
   python \
   sudo \
-  openssh
+  openssh \
+  rsync
 
 # Grab the VCA CI scripts
 RUN vca-install-package wget && \
